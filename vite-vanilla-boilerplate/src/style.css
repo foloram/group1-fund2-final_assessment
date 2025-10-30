@@ -25,8 +25,8 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  flex-direction: column;
   min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -81,7 +81,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -99,9 +99,45 @@ img {
 }
 
 .footer {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
   padding: 1rem;
   margin-top: auto;
+  margin: 2rem auto 0 auto;
+  width: 80%;
+  gap: 1rem;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 35%;
+  margin-top: 0%;
+  padding-top: 0%;
+}
+
+.column h2 {
+  margin-bottom: 0.5rem;
+
+  margin-left: 0%;
+}
+
+.column p {
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+p {
+  color: gray;
+}
+
+h2 {
+  color: darkgray;
 }
 
 .icon-container {
@@ -111,21 +147,21 @@ img {
 }
 
 .app {
-  flex: 1;
-  display: flex;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .layout {
   display: flex;
-  flex: 1;
+
+  flex-direction: column;
 }
 
 .sidebar {
   width: 80px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,4 +172,10 @@ img {
 .icon-container img {
   width: 35px;
   margin-bottom: 1.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
