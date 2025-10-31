@@ -5,27 +5,59 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vite-boilerplate</title>
+    <link rel="stylesheet" href="./src/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet"> 
   </head>
+
   <body>
-    <div class="layout">
-      <div class="container">
+
+    <header class="layout">
+      
         <div class="sidebar">
-          <div class="icon-container">
-            <img src="/icons/Icon-Logo-Dark.svg" alt="" />
-            <img src="/icons/Icon-Logo-Light.svg" alt="" />
+          <div class="logo-container">
+            <button id="logoDL-switch">
+              <img class="logoDark" src="./public/assets/Icon-Logo-Dark.svg" alt="Logo-Dark" />
+              <img class="logoLight" src="./public/assets/Icon-Logo-Light.svg" alt="Logo-Light" />
+            </button>
           </div>
+          
+          <button id="theme-switch">
+              <img class="toggleDark" src="./public/assets/Toggle Dark Mode Icon.svg" alt="Dark Mode Icon">
+              <img class="toggleLight" src="./public/assets/Toggle Light Mode Icon 2.svg" alt="Light Mode Icon">
+          </button>
+
         </div>
-        <div class="app" id="app"></div>
+    </header>
+
+    <section id="content">
+      <div class="welcomingCopy">
+        <h1>Welcome to the wild wild west of photography</h1>
       </div>
-      <footer class="footer">
-        <h2>FED 2027</h2>
-        <p>
-          Yuri <br />Ghazal <br />
-          Roujeh <br />Patricia
-        </p>
-      </footer>
-    </div>
+      <div class="imagesBatch"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="column1">
+        <h2 class="school">HYPER ISLAND</h2>
+        <p>2025</p>
+      </div>
+      <div class="column2">
+        <h2 class="course">FED 2027</h2>
+        <p>Seyedeh Fatemeh Ajdar (Ghazal)</p>
+        <p>Patricia Gea Rodrigues</p>
+        <p>Yuri Cabrera Rivera</p>
+        <p>Roujeh Aljunidi</p>
+      </div>
+      <div class="column3">
+        <h2 class="project">PROJECT</h2>
+        <p class="projectDescription">In this project, we want to work in a group of four to create a web application that displays a collection of images fetched from an API. The goal is to apply our knowledge of HTML, CSS, and JavaScript to build an interactive, data-driven interface.</p>
+      </div>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
+  
   </body>
 </html>
