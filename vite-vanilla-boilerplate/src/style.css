@@ -73,7 +73,7 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-/* TEAM STYLES */
+/* YURI STYLES */
 
 :root{
   --bg-color: white;
@@ -126,13 +126,13 @@ img.logoDark {
 img.logoDark {
   display: inline-block;
 }
-#logoDL-switch img.logoLight {
+#logoImgLoader-btn img.logoLight {
   display: none;
 }
-.darkMode #logoDL-switch img.logoDark {
+.darkMode #logoImgLoader-btn img.logoDark {
   display: none;
 }
-.darkMode #logoDL-switch img.logoLight {
+.darkMode #logoImgLoader-btn img.logoLight {
   display: inline-block;
 }
 
@@ -157,21 +157,38 @@ section {
   display: grid;
   gap: 36px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 128px 128px; /* the second and third value are temporary */
 }
 
 .welcomingCopy {
   grid-column-start: 1;
   grid-column-end: 13;
+  grid-row-start: 1;
 }
 h1 {
-  text-transform:uppercase;
+  text-transform: uppercase;
   font-size: 128px;
   font-weight: 900;
   letter-spacing: -3.84px;
   line-height: 90%
 }
 
+.hidden {
+  display: none;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 1;
+}
+
+.hidden img {
+  display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 0.1;
+
+}
 
 /* FOOTER */
 footer {
