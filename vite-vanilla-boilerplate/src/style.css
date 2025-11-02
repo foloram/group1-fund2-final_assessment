@@ -98,6 +98,66 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   height: 100vh;
+  @media (max-width: 415px) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 24px;
+
+      header {
+        margin: 0px 32px 0px 32px;
+        max-width: 100vw;
+      }
+      
+      .sidebar {
+        display: flex;
+        gap: 24px;
+        justify-content: space-between;
+      }
+
+      .welcomingCopy {
+        padding-top: 32px;
+      }
+      h1 {
+        font-size: 30px;
+        letter-spacing: 0;
+        line-height: 100%
+      }
+
+      section {
+        margin: 0px 40px 0px 40px;
+        padding-top: 48px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 0;
+        grid-template-rows: 1fr 64px 64px; /* the second and third value are temporary */
+      }
+
+      footer {
+        display: grid;
+        gap: 36px;
+        margin: 0px 40px 48px 40px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 64px;
+      }
+      h2 {
+        font-size:small;
+      }
+      .column1 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+      }
+      .column2 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+      }
+      .column3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+      }
+  }
 }
 
 p {
@@ -111,7 +171,7 @@ header {
   position: fixed;
   display: grid;
   grid-template-columns: 1fr;
-  grid-row: 36px 1fr 1fr;
+  grid-template-rows: 1fr 32px;
 }
 
 button {
@@ -157,7 +217,7 @@ section {
   display: grid;
   gap: 36px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr 128px 128px; /* the second and third value are temporary */
+  grid-template-rows: 1fr 128px 152px; /* the second and third value are temporary, we could change it later */
 }
 
 .welcomingCopy {
@@ -186,8 +246,7 @@ h1 {
 .hidden img {
   display: inline-block;
   flex-grow: 1;
-  flex-shrink: 0.1;
-
+  flex-shrink: 0;
 }
 
 /* FOOTER */
