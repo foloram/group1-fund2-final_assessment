@@ -249,6 +249,31 @@ h1 {
   flex-shrink: 0;
 }
 
+#buttonContainer {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  display: none;
+  justify-content: center;
+}
+button.picturesBatchLoader {
+  border: 1px solid var(--subText-color);
+  border-radius: 1rem;
+  height: 40px;
+  width: 100%;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.picturesBatchLoader:hover {
+  background-color:var(--text-color);
+  border-color:var(--text-color);
+  color: var(--bg-color);
+  transition: 300ms;
+}
+.picturesBatchLoader:active {
+  background-color: var(--subText-color);
+  color: var(--text-color);
+}
+
 /* FOOTER */
 footer {
   display: grid;

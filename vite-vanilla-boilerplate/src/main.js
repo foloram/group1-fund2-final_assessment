@@ -39,6 +39,7 @@ fetchImages(currentPage);
 // LOGO BUTTON FOR IMG LOADER
 const button = document.getElementById('logoImgLoader-btn');
 const textSection = document.querySelector('.welcomingCopy');
+const buttonLoader = document.querySelector('#buttonContainer');
 
 button.addEventListener("click", () => {
   const showingText = !textSection.classList.contains('hidden');
@@ -46,8 +47,11 @@ button.addEventListener("click", () => {
   if(showingText) {
     textSection.classList.add('hidden');
     container.style.display = "inline-flex";
+    buttonLoader.style.display = "flex";
   } else {
-    container.style.display = "inline-flex";
+    container.style.display = "none";
+    textSection.classList.remove('hidden');
+    buttonLoader.style.display = "none";    
   };
 })
 
@@ -77,3 +81,13 @@ themeSwitch.addEventListener("click", () => {
     disableDarkMode();
   };
 })
+
+
+
+// PATRICIA >>
+
+// Button: charge more images //
+buttonLoader.addEventListener("click", () => {
+  currentPage++;
+  fetchImages(currentPage);
+});
