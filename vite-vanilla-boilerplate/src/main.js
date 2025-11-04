@@ -2,18 +2,33 @@
 import "./style.css";
 
 const container = document.getElementById("gallery");
+// Overlay
+const overlay = document.querySelector(".overlay");
 
 let currentPage = 1;
 const limit = 10;
 
 // Create image element and add to container //
 function createImage(src) {
+
+  // Wrapper
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("image-card");
+
+  // Image
   const image = document.createElement('img');
   image.src = src;
   image.style.width = "432px";
   image.style.marginBottom = "1rem";
   image.style.gap = "1rem";
   image.style.borderRadius = "16px";
+  image.classList.add("gallery-image");
+
+  // Add image + overlay to wrapper
+  wrapper.appendChild(image);
+  wrapper.appendChild(overlay);
+
+  // Add wrapper to gallery container
   container.appendChild(image);
 }
 
@@ -90,4 +105,17 @@ themeSwitch.addEventListener("click", () => {
 buttonLoader.addEventListener("click", () => {
   currentPage++;
   fetchImages(currentPage);
+});
+
+// like button and counter//
+
+let counting = 0;
+
+const btnLike = document.getElementById("btnLike");
+const moreLikes = document.getElementById("countLikes");
+
+btnLike.addEventListener("click", 
+    function() {
+  counting++;
+  moreLikes.textContent = counting;
 });
