@@ -126,8 +126,20 @@ body {
 
     .sidebar {
       display: flex;
-      gap: 24px;
+      flex-direction: row;
       justify-content: space-between;
+      top: 0;
+    }
+    .logo-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      top: 0;
+    }
+
+    header {
+      top: 0;
     }
 
     .welcomingCopy {
@@ -183,11 +195,11 @@ p {
 
 /* HEADER */
 header {
+  display: flex;
+  justify-content: space-between;
   margin: 48px 0px 0px 8px;
   position: fixed;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 32px;
+  width: 300px;
 }
 
 button {
@@ -407,4 +419,12 @@ h2 {
   cursor: pointer;
   color: #333;
   font-weight: bold;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
 }
