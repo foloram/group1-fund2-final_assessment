@@ -5,31 +5,47 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vite-boilerplate</title>
-    <link rel="stylesheet" href="./src/style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./src/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Martian+Mono:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-
     <header class="layout">
-      
-        <div class="sidebar">
-          <div class="logo-container">
-            <button id="logoImgLoader-btn">
-              <img class="logoDark" src="./public/assets/Icon-Logo-Dark.svg" alt="Logo-Dark" />
-              <img class="logoLight" src="./public/assets/Icon-Logo-Light.svg" alt="Logo-Light" />
-            </button>
-          </div>
-          
-          <button id="theme-switch">
-              <img class="toggleDark" src="./public/assets/Toggle Dark Mode Icon.svg" alt="Dark Mode Icon">
-              <img class="toggleLight" src="./public/assets/Toggle Light Mode Icon 2.svg" alt="Light Mode Icon">
+      <div class="sidebar">
+        <div class="logo-container">
+          <button id="logoImgLoader-btn">
+            <img
+              class="logoDark"
+              src="./public/assets/Icon-Logo-Dark.svg"
+              alt="Logo-Dark"
+            />
+            <img
+              class="logoLight"
+              src="./public/assets/Icon-Logo-Light.svg"
+              alt="Logo-Light"
+            />
           </button>
-
         </div>
+
+        <button id="theme-switch">
+          <img
+            class="toggleDark"
+            src="./public/assets/Toggle Dark Mode Icon.svg"
+            alt="Dark Mode Icon"
+          />
+          <img
+            class="toggleLight"
+            src="./public/assets/Toggle Light Mode Icon 2.svg"
+            alt="Light Mode Icon"
+          />
+        </button>
+      </div>
     </header>
 
     <section id="content">
@@ -37,16 +53,31 @@
         <h1>Welcome to the wild wild west of photography</h1>
       </div>
       <div id="gallery" class="hidden"></div>
+      <div id="popupOverlay" class="popup-overlay hidden">
+        <div class="popup-content">
+          <span id="close-popup">&times;</span>
+          <img id="popupImage" src="" alt="Expanded Image" />
+        </div>
+      </div>
+
       <div class="overlay">
         <div class="iconsWrapper">
           <div class="btnLike-container">
             <button id="btnLike">
-              <img src="./public/assets/LikeIcon_Default.svg" alt="Like Icon" class="likeIcon">
+              <img
+                src="./public/assets/LikeIcon_Default.svg"
+                alt="Like Icon"
+                class="likeIcon"
+              />
             </button>
             <p class="likesTitle">Likes <span id="countLikes">0</span></p>
           </div>
           <button id="openCommentsModal">
-            <img src="./public/assets/CommentIcon_Default-Clicked.svg" alt="Comment Icon" class="commentIcon">
+            <img
+              src="./public/assets/CommentIcon_Default-Clicked.svg"
+              alt="Comment Icon"
+              class="commentIcon"
+            />
           </button>
         </div>
       </div>
@@ -69,11 +100,15 @@
       </div>
       <div class="column3">
         <h2 class="project">PROJECT</h2>
-        <p class="projectDescription">In this project, we want to work in a group of four to create a web application that displays a collection of images fetched from an API. The goal is to apply our knowledge of HTML, CSS, and JavaScript to build an interactive, data-driven interface.</p>
+        <p class="projectDescription">
+          In this project, we want to work in a group of four to create a web
+          application that displays a collection of images fetched from an API.
+          The goal is to apply our knowledge of HTML, CSS, and JavaScript to
+          build an interactive, data-driven interface.
+        </p>
       </div>
     </footer>
 
     <script type="module" src="/src/main.js"></script>
-  
   </body>
 </html>
