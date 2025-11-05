@@ -288,7 +288,7 @@ button.picturesBatchLoader {
   align-items: flex-end;
   padding-bottom: 24px;
   padding-right: 24px;
-  opacity: 0;                /* hidden by default */
+  opacity: 0;  /* hidden by default */
   transition: opacity 0.3s ease;
   border-radius: 1rem;
 }
@@ -296,6 +296,11 @@ button.picturesBatchLoader {
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
+}
+
+/* Slight zoom on hover */
+.image-card:hover .gallery-image {
+  transform: scale(1.05);
 }
 /* Show overlay on hover */
 .image-card:hover .overlay {

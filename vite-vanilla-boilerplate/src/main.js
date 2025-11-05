@@ -19,7 +19,7 @@ function createImage(src) {
   image.style.borderRadius = "1rem";
   image.classList.add("gallery-image");
 
-  // ✅ Create a NEW overlay for each image
+  // Create a NEW overlay for each image
   const overlay = document.createElement("div");
   overlay.classList.add("overlay");
 
@@ -50,7 +50,7 @@ function createImage(src) {
   wrapper.appendChild(image);
   wrapper.appendChild(overlay);
 
-  // ✅ Append the wrapper (not just the image) to the gallery
+  // Append the wrapper (not just the image) to the gallery
   container.appendChild(wrapper);
 }
 
