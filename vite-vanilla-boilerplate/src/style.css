@@ -178,6 +178,7 @@ header {
 button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 img.logoDark {
   display: inline-block;
@@ -287,11 +288,18 @@ button.picturesBatchLoader {
   align-items: flex-end;
   padding-bottom: 24px;
   padding-right: 24px;
+  opacity: 0;                /* hidden by default */
+  transition: opacity 0.3s ease;
+  border-radius: 1rem;
 }
 .image-card {
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
+}
+/* Show overlay on hover */
+.image-card:hover .overlay {
+  opacity: 1;
 }
 .gallery-image {
   width: 100%;
@@ -301,10 +309,10 @@ button.picturesBatchLoader {
   transition: transform 0.3s ease;
 }
 .iconsWrapper {
-display: flex;
-width: 132px;
-align-items: flex-start;
-gap: 8px;
+  display: flex;
+  width: 132px;
+  align-items: flex-start;
+  gap: 8px;
 }
 .btnLike-container {
   display: flex;
@@ -318,7 +326,13 @@ gap: 8px;
   background: rgba(255, 255, 255, 0.25);
 }
 .likesTitle, #countLikes {
- color: white;
+  color: white;
+}
+#btnLike {
+  cursor: pointer;
+}
+#openCommentsModal {
+  cursor: pointer;
 }
 
 

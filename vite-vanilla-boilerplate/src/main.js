@@ -2,15 +2,12 @@
 import "./style.css";
 
 const container = document.getElementById("gallery");
-// Overlay
-const overlay = document.querySelector(".overlay");
 
 let currentPage = 1;
 const limit = 10;
 
 // Create image element and add to container //
 function createImage(src) {
-
   // Wrapper
   const wrapper = document.createElement("div");
   wrapper.classList.add("image-card");
@@ -19,33 +16,57 @@ function createImage(src) {
   const image = document.createElement('img');
   image.src = src;
   image.style.width = "432px";
-  image.style.marginBottom = "1rem";
-  image.style.gap = "1rem";
-  image.style.borderRadius = "16px";
+  image.style.borderRadius = "1rem";
   image.classList.add("gallery-image");
+
+  // ✅ Create a NEW overlay for each image
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+
+  // Add your icons inside this overlay
+  const iconsWrapper = document.createElement("div");
+  iconsWrapper.classList.add("iconsWrapper");
+
+  const likeContainer = document.createElement("div");
+  likeContainer.classList.add("btnLike-container");
+  likeContainer.innerHTML = `
+    <button id="btnLike">
+      <img src="./public/assets/LikeIcon_Default.svg" alt="Like Icon" class="likeIcon">
+    </button>
+    <p class="likesTitle">Likes <span id="countLikes">0</span></p>
+  `;
+
+  const commentButton = document.createElement("button");
+  commentButton.id = "openCommentsModal";
+  commentButton.innerHTML = `
+    <img src="./public/assets/CommentIcon_Default-Clicked.svg" alt="Comment Icon" class="commentIcon">
+  `;
+
+  iconsWrapper.appendChild(likeContainer);
+  iconsWrapper.appendChild(commentButton);
+  overlay.appendChild(iconsWrapper);
 
   // Add image + overlay to wrapper
   wrapper.appendChild(image);
   wrapper.appendChild(overlay);
 
-  // Add wrapper to gallery container
-  container.appendChild(image);
+  // ✅ Append the wrapper (not just the image) to the gallery
+  container.appendChild(wrapper);
 }
 
-// Find images from API //
+// Fetch images from API
 async function fetchImages(page) {
   try {
     const resp = await fetch(`https://image-feed-api.vercel.app/api/images?page=${page}`);
     const json = await resp.json();
 
     json.data.forEach(img => createImage(img.image_url));
-
   } catch (error) {
-    console.error("Error to find images:", error);
+    console.error("Error fetching images:", error);
   }
 }
 
-// Charge initial images //
+// Load initial images
 fetchImages(currentPage);
 
 
