@@ -1,5 +1,5 @@
-// FETCHING IMAGES
 import "./style.css";
+// FETCHING IMAGES
 
 const container = document.getElementById("gallery");
 
@@ -16,11 +16,44 @@ const closePopup = document.getElementById("close-popup");
 function openPopup(src) {
   popupImage.src = src;
   popupOverlay.classList.remove("hidden");
+  currentImageSrc = src;
+
+  renderComments();
 }
 // Function to close popup
 closePopup.addEventListener("click", () => {
   popupOverlay.classList.add("hidden");
 });
+
+// comment section
+const commentInput = document.getElementById("commentInput");
+const commentButton = document.getElementById("commentButton");
+const commentsList = document.getElementById("commentsList");
+
+let imageComments = {};
+let currentImageSrc = null;
+
+commentButton.addEventListener("click", () => {
+  const commentText = commentInput.value.trim();
+  if (!commentText || !currentImageSrc) return;
+  if (!imageComments[currentImageSrc]) {
+    imageComments[currentImageSrc] = [];
+  }
+  imageComments[currentImageSrc].push(commentText);
+  commentInput.value = "";
+  renderComments();
+});
+
+function renderComments() {
+  commentsList.innerHTML = "";
+  const comments = imageComments[currentImageSrc] || [];
+  comments.forEach((comment) => {
+    const commentDiv = document.createElement("div");
+    commentDiv.classList.add("comment");
+    commentDiv.textContent = comment;
+    commentsList.appendChild(commentDiv);
+  });
+}
 
 // Create image element and add to container //
 function createImage(src) {
@@ -29,9 +62,9 @@ function createImage(src) {
   wrapper.classList.add("image-card");
 
   // Image
-  const image = document.createElement('img');
+  const image = document.createElement("img");
   image.src = src;
-  image.style.width = "432px";
+  image.style.width = "250px";
   image.style.borderRadius = "1rem";
   image.classList.add("gallery-image");
 
@@ -78,10 +111,12 @@ function createImage(src) {
 // Fetch images from API
 async function fetchImages(page) {
   try {
-    const resp = await fetch(`https://image-feed-api.vercel.app/api/images?page=${page}`);
+    const resp = await fetch(
+      `https://image-feed-api.vercel.app/api/images?page=${page}`
+    );
     const json = await resp.json();
 
-    json.data.forEach(img => createImage(img.image_url));
+    json.data.forEach((img) => createImage(img.image_url));
   } catch (error) {
     console.error("Error fetching images:", error);
   }
@@ -90,59 +125,55 @@ async function fetchImages(page) {
 // Load initial images
 fetchImages(currentPage);
 
-
 // YURI SCRIPTS >>
 
 // LOGO BUTTON FOR IMG LOADER
-const button = document.getElementById('logoImgLoader-btn');
-const textSection = document.querySelector('.welcomingCopy');
-const buttonLoader = document.querySelector('#buttonContainer');
+const button = document.getElementById("logoImgLoader-btn");
+const textSection = document.querySelector(".welcomingCopy");
+const buttonLoader = document.querySelector("#buttonContainer");
 
 button.addEventListener("click", () => {
-  const showingText = !textSection.classList.contains('hidden');
+  const showingText = !textSection.classList.contains("hidden");
 
-  if(showingText) {
-    textSection.classList.add('hidden');
+  if (showingText) {
+    textSection.classList.add("hidden");
     container.style.display = "inline-flex";
     buttonLoader.style.display = "flex";
   } else {
     container.style.display = "none";
-    textSection.classList.remove('hidden');
-    buttonLoader.style.display = "none";    
-  };
-})
-
+    textSection.classList.remove("hidden");
+    buttonLoader.style.display = "none";
+  }
+});
 
 // BUTTON FOR DARK-LIGHT MODE
-let darkMode = localStorage.getItem('darkMode');
-const themeSwitch = document.getElementById('theme-switch');
+let darkMode = localStorage.getItem("darkMode");
+const themeSwitch = document.getElementById("theme-switch");
 
 const enableDarkMode = () => {
-  document.body.classList.add('darkMode');
-  localStorage.setItem('darkMode', 'active');
+  document.body.classList.add("darkMode");
+  localStorage.setItem("darkMode", "active");
 };
 
 const disableDarkMode = () => {
-  document.body.classList.remove('darkMode');
-  localStorage.setItem('darkMode', null);
+  document.body.classList.remove("darkMode");
+  localStorage.setItem("darkMode", null);
 };
 
-if(darkMode === "active") enableDarkMode();
+if (darkMode === "active") enableDarkMode();
 
 themeSwitch.addEventListener("click", () => {
-  darkMode = localStorage.getItem('darkMode');
-  if(darkMode !== "active") {
+  darkMode = localStorage.getItem("darkMode");
+  if (darkMode !== "active") {
     enableDarkMode();
   } else {
     disableDarkMode();
-  };
-})
-
-
+  }
+});
 
 // PATRICIA >>
 
-// Button: charge more images 
+// Button: charge more images
 buttonLoader.addEventListener("click", () => {
   currentPage++;
   fetchImages(currentPage);
@@ -154,11 +185,7 @@ let counting = 0;
 const btnLike = document.getElementById("btnLike");
 const moreLikes = document.getElementById("countLikes");
 
-btnLike.addEventListener("click", 
-  function() {
-    counting++;
-    moreLikes.textContent = counting;
+btnLike.addEventListener("click", function () {
+  counting++;
+  moreLikes.textContent = counting;
 });
-
-
-
