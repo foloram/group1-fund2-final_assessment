@@ -6,6 +6,22 @@ const container = document.getElementById("gallery");
 let currentPage = 1;
 const limit = 10;
 
+// GHAZAL >>
+
+// Modal pop-up
+const popupOverlay = document.getElementById("popupOverlay");
+const popupImage = document.getElementById("popupImage");
+const closePopup = document.getElementById("close-popup");
+// Function to open popup with the clicked image
+function openPopup(src) {
+  popupImage.src = src;
+  popupOverlay.classList.remove("hidden");
+}
+// Function to close popup
+closePopup.addEventListener("click", () => {
+  popupOverlay.classList.add("hidden");
+});
+
 // Create image element and add to container //
 function createImage(src) {
   // Wrapper
@@ -45,6 +61,11 @@ function createImage(src) {
   iconsWrapper.appendChild(likeContainer);
   iconsWrapper.appendChild(commentButton);
   overlay.appendChild(iconsWrapper);
+
+  // GHAZAL THIS IS IMPORTANT: Add click event to open popup!
+  commentButton.addEventListener("click", () => {
+    openPopup(src);
+  });
 
   // Add image + overlay to wrapper
   wrapper.appendChild(image);
@@ -138,3 +159,6 @@ btnLike.addEventListener("click",
     counting++;
     moreLikes.textContent = counting;
 });
+
+
+
