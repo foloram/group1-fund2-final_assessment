@@ -302,6 +302,7 @@ button.picturesBatchLoader {
 .image-card:hover .gallery-image {
   transform: scale(1.05);
 }
+
 /* Show overlay on hover */
 .image-card:hover .overlay {
   opacity: 1;
@@ -313,6 +314,8 @@ button.picturesBatchLoader {
   display: block;
   transition: transform 0.3s ease;
 }
+
+/* Styling the icons */
 .iconsWrapper {
   display: flex;
   width: 132px;

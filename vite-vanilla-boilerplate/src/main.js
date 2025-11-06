@@ -93,7 +93,6 @@ button.addEventListener("click", () => {
 
 
 // BUTTON FOR DARK-LIGHT MODE
-
 let darkMode = localStorage.getItem('darkMode');
 const themeSwitch = document.getElementById('theme-switch');
 
@@ -122,21 +121,20 @@ themeSwitch.addEventListener("click", () => {
 
 // PATRICIA >>
 
-// Button: charge more images //
+// Button: charge more images 
 buttonLoader.addEventListener("click", () => {
   currentPage++;
   fetchImages(currentPage);
 });
 
-// like button and counter//
-
+// like button and counter
 let counting = 0;
 
 const btnLike = document.getElementById("btnLike");
 const moreLikes = document.getElementById("countLikes");
 
 btnLike.addEventListener("click", 
-    function() {
-  counting++;
-  moreLikes.textContent = counting;
+  function() {
+    counting++;
+    moreLikes.textContent = counting;
 });
