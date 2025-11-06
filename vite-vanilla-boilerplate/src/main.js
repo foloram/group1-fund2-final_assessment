@@ -65,7 +65,7 @@ function createImage(src) {
   // GHAZAL THIS IS IMPORTANT: Add click event to open popup!
   commentButton.addEventListener("click", () => {
     openPopup(src);
-  });
+  }); // GHAZAL
 
   // Add image + overlay to wrapper
   wrapper.appendChild(image);
