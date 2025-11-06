@@ -402,9 +402,9 @@ h2 {
 .popup-content {
   position: relative;
   background: var(--bg-color);
-  padding: 16px;
+  padding: 30px;
   border-radius: 8px;
-  padding: 10px;
+
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   transform: translateY(0);
   transition: transform 0.3s ease;
@@ -417,9 +417,9 @@ h2 {
   max-height: 80vh;
   border-radius: 8px;
 }
-.close-popup {
+#close-popup {
   position: absolute;
-  top: 8px;
+  top: -5px;
   right: 12px;
   font-size: 24px;
   color: var(--text-color);
@@ -468,7 +468,9 @@ h2 {
 }
 
 #commentsList {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-height: 200px;
 }
 
 #commentsList p {

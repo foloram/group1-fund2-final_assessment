@@ -64,7 +64,7 @@ function createImage(src) {
   // Image
   const image = document.createElement("img");
   image.src = src;
-  image.style.width = "250px";
+  image.style.width = "380px";
   image.style.borderRadius = "1rem";
   image.classList.add("gallery-image");
 
