@@ -6,91 +6,6 @@ const container = document.getElementById("gallery");
 let currentPage = 1;
 const limit = 10;
 
-// GHAZAL >>
-
-// Modal pop-up
-const popupOverlay = document.getElementById("popupOverlay");
-const popupImage = document.getElementById("popupImage");
-const closePopup = document.getElementById("close-popup");
-// Function to open popup with the clicked image
-function openPopup(src) {
-  popupImage.src = src;
-  popupOverlay.classList.remove("hidden");
-}
-// Function to close popup
-closePopup.addEventListener("click", () => {
-  popupOverlay.classList.add("hidden");
-});
-
-// Create image element and add to container //
-function createImage(src) {
-  // Wrapper
-  const wrapper = document.createElement("div");
-  wrapper.classList.add("image-card");
-
-  // Image
-  const image = document.createElement('img');
-  image.src = src;
-  image.style.width = "432px";
-  image.style.borderRadius = "1rem";
-  image.classList.add("gallery-image");
-
-  // Create a NEW overlay for each image
-  const overlay = document.createElement("div");
-  overlay.classList.add("overlay");
-
-  // Add your icons inside this overlay
-  const iconsWrapper = document.createElement("div");
-  iconsWrapper.classList.add("iconsWrapper");
-
-  const likeContainer = document.createElement("div");
-  likeContainer.classList.add("btnLike-container");
-  likeContainer.innerHTML = `
-    <button id="btnLike">
-      <img src="./public/assets/LikeIcon_Default.svg" alt="Like Icon" class="likeIcon">
-    </button>
-    <p class="likesTitle">Likes <span id="countLikes">0</span></p>
-  `;
-
-  const commentButton = document.createElement("button");
-  commentButton.id = "openCommentsModal";
-  commentButton.innerHTML = `
-    <img src="./public/assets/CommentIcon_Default-Clicked.svg" alt="Comment Icon" class="commentIcon">
-  `;
-
-  iconsWrapper.appendChild(likeContainer);
-  iconsWrapper.appendChild(commentButton);
-  overlay.appendChild(iconsWrapper);
-
-  // GHAZAL THIS IS IMPORTANT: Add click event to open popup!
-  commentButton.addEventListener("click", () => {
-    openPopup(src);
-  }); // GHAZAL
-
-  // Add image + overlay to wrapper
-  wrapper.appendChild(image);
-  wrapper.appendChild(overlay);
-
-  // Append the wrapper (not just the image) to the gallery
-  container.appendChild(wrapper);
-}
-
-// Fetch images from API
-async function fetchImages(page) {
-  try {
-    const resp = await fetch(`https://image-feed-api.vercel.app/api/images?page=${page}`);
-    const json = await resp.json();
-
-    json.data.forEach(img => createImage(img.image_url));
-  } catch (error) {
-    console.error("Error fetching images:", error);
-  }
-}
-
-// Load initial images
-fetchImages(currentPage);
-
-
 // YURI SCRIPTS >>
 
 // LOGO BUTTON FOR IMG LOADER
@@ -127,7 +42,9 @@ const disableDarkMode = () => {
   localStorage.setItem('darkMode', null);
 };
 
-if(darkMode === "active") enableDarkMode();
+if(darkMode === "active") {
+  enableDarkMode();
+}
 
 themeSwitch.addEventListener("click", () => {
   darkMode = localStorage.getItem('darkMode');
@@ -137,6 +54,124 @@ themeSwitch.addEventListener("click", () => {
     disableDarkMode();
   };
 })
+
+// GHAZAL >>
+// Modal pop-up
+const popupOverlay = document.getElementById("popupOverlay");
+const popupImage = document.getElementById("popupImage");
+const closePopup = document.getElementById("close-popup");
+// Function to open popup with the clicked image
+function openPopup(src) {
+  popupImage.src = src;
+  popupOverlay.classList.remove("hidden");
+}
+// Function to close popup
+closePopup.addEventListener("click", () => {
+  popupOverlay.classList.add("hidden");
+}); 
+// GHAZAL <<
+
+// Create image element and add to container //
+function createImage(src) {
+  // Wrapper
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("image-card");
+
+  // Image
+  const image = document.createElement('img');
+  image.src = src;
+  image.style.width = "432px";
+  image.style.borderRadius = "1rem";
+  image.classList.add("gallery-image");
+
+  // Create a NEW overlay for each image
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+
+  // Add your icons inside this overlay
+  const iconsWrapper = document.createElement("div");
+  iconsWrapper.classList.add("iconsWrapper");
+
+  const likeContainer = document.createElement("div");
+  likeContainer.classList.add("btnLike-container");
+  likeContainer.innerHTML = `
+    <button id="btnLike">
+      <img src="./public/assets/LikeIcon_Default.svg" alt="Like Icon" class="likeIcon">
+    </button>
+    <button id="btnLikePressed">
+      <img src="./public/assets/LikeIcon_Pressed.svg" alt="Like Icon Pressed" class="likeIconPressed">
+    </button>
+    <p class="likesTitle">Likes <span id="countLikes">0</span></p>
+  `;
+
+  const commentButton = document.createElement("button");
+  commentButton.id = "openCommentsModal";
+  commentButton.innerHTML = `
+    <img src="./public/assets/CommentIcon_Default-Clicked.svg" alt="Comment Icon" class="commentIcon">
+  `;
+
+  iconsWrapper.appendChild(likeContainer);
+  iconsWrapper.appendChild(commentButton);
+  overlay.appendChild(iconsWrapper);
+
+  // GHAZAL >> THIS IS IMPORTANT: Add click event to open popup!
+  commentButton.addEventListener("click", () => {
+    openPopup(src);
+  }); // GHAZAL <<
+
+  // Add image + overlay to wrapper
+  wrapper.appendChild(image);
+  wrapper.appendChild(overlay);
+
+  // Append the wrapper (not just the image) to the gallery
+  container.appendChild(wrapper);
+}
+
+// === RESPONSIVE IMAGE SIZE FUNCTION === //
+function adjustImageSizes() {
+  const images = document.querySelectorAll(".gallery-image");
+  const screenWidth = window.innerWidth;
+
+  let imgWidth;
+
+  // Set specific image widths based on screen size
+  if (screenWidth < 900) {
+    imgWidth = 320; // small tablet
+  } else if (screenWidth < 1291) {
+    imgWidth = 280; // laptop
+  } else if (screenWidth < 1415) {
+    imgWidth = 300; // laptop
+  } else if (screenWidth < 1480) {
+    imgWidth = 340; // laptop
+  } else {
+    imgWidth = 420; // large screens
+  }
+
+  images.forEach(img => {
+    img.style.width = `${imgWidth}px`;
+    img.style.height = "auto";
+  });
+}
+
+// Call on load and when resizing window
+window.addEventListener("load", adjustImageSizes);
+window.addEventListener("resize", adjustImageSizes);
+
+// Fetch images from API
+async function fetchImages(page) {
+  try {
+    const resp = await fetch(`https://image-feed-api.vercel.app/api/images?page=${page}`);
+    const json = await resp.json();
+
+    json.data.forEach(img => createImage(img.image_url));
+  } catch (error) {
+    console.error("Error fetching images:", error);
+  }
+}
+
+// Load initial images
+fetchImages(currentPage);
+
 
 
 
