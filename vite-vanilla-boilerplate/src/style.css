@@ -341,12 +341,21 @@ button.picturesBatchLoader {
 #btnLike {
   cursor: pointer;
 }
-#openCommentsModal {
+.btnLike {
+  background: transparent;
+  border: none;
   cursor: pointer;
 }
-#btnLikePressed {
-  display: none;
+.btnLike img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
 }
+.btnLike:hover img {
+  transform: scale(1.1);
+}
+
+
 
 /* FOOTER */
 footer {

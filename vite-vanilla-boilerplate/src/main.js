@@ -27,7 +27,6 @@ button.addEventListener("click", () => {
   };
 })
 
-
 // BUTTON FOR DARK-LIGHT MODE
 let darkMode = localStorage.getItem('darkMode');
 const themeSwitch = document.getElementById('theme-switch');
@@ -95,15 +94,29 @@ function createImage(src) {
   const likeContainer = document.createElement("div");
   likeContainer.classList.add("btnLike-container");
   likeContainer.innerHTML = `
-    <button id="btnLike">
+    <button class="btnLike">
       <img src="./public/assets/LikeIcon_Default.svg" alt="Like Icon" class="likeIcon">
     </button>
-    <button id="btnLikePressed">
-      <img src="./public/assets/LikeIcon_Pressed.svg" alt="Like Icon Pressed" class="likeIconPressed">
-    </button>
-    <p class="likesTitle">Likes <span id="countLikes">0</span></p>
+    <p class="likesTitle">Likes <span class="countLikes">0</span></p>
   `;
 
+  // Make the Like Button functional
+  const likeButton = likeContainer.querySelector(".btnLike");
+  const likeIcon = likeContainer.querySelector(".likeIcon");
+  const likeCount = likeContainer.querySelector(".countLikes");
+  let liked = false;
+  let count = 0;
+
+  likeButton.addEventListener("click", () => {
+    liked = !liked;
+    count += liked ? 1 : -1;
+    likeCount.textContent = count;
+    likeIcon.src = liked
+      ? "./public/assets/LikeIcon_Pressed.svg"
+      : "./public/assets/LikeIcon_Default.svg";
+  });
+
+  // Comment Button
   const commentButton = document.createElement("button");
   commentButton.id = "openCommentsModal";
   commentButton.innerHTML = `
@@ -184,16 +197,16 @@ buttonLoader.addEventListener("click", () => {
 });
 
 // like button and counter
-let counting = 0;
+// let counting = 0;
 
-const btnLike = document.getElementById("btnLike");
-const moreLikes = document.getElementById("countLikes");
+// const btnLike = document.getElementById("btnLike");
+// const moreLikes = document.getElementById("countLikes");
 
-btnLike.addEventListener("click", 
-  function() {
-    counting++;
-    moreLikes.textContent = counting;
-});
+// btnLike.addEventListener("click", 
+//   function() {
+//     counting++;
+//     moreLikes.textContent = counting;
+// });
 
 
 
