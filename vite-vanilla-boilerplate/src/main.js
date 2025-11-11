@@ -7,7 +7,7 @@ let currentPage = 1;
 const limit = 10;
 
 
-// LOGO BUTTON FOR IMG LOADER
+// BUTTON FOR IMG LOADER
 const button = document.getElementById('logoImgLoader-btn');
 const textSection = document.querySelector('.welcomingCopy');
 const buttonLoader = document.querySelector('#buttonContainer');
