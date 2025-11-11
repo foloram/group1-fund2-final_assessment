@@ -6,7 +6,7 @@ const container = document.getElementById("gallery");
 let currentPage = 1;
 const limit = 10;
 
-// YURI SCRIPTS >>
+// SIDEBAR SCRIPTS <<
 
 // LOGO BUTTON FOR IMG LOADER
 const button = document.getElementById('logoImgLoader-btn');
@@ -53,8 +53,10 @@ themeSwitch.addEventListener("click", () => {
     disableDarkMode();
   };
 })
+// SIDEBAR SCRIPTS >>
 
-// GHAZAL >>
+
+// MODAL POPUP <<
 // Modal pop-up
 const popupOverlay = document.getElementById("popupOverlay");
 const popupImage = document.getElementById("popupImage");
@@ -68,7 +70,7 @@ function openPopup(src) {
 closePopup.addEventListener("click", () => {
   popupOverlay.classList.add("hidden");
 }); 
-// GHAZAL <<
+// MODAL POPUP >>
 
 // Create image element and add to container //
 function createImage(src) {
