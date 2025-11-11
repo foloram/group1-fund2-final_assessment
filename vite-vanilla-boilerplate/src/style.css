@@ -1,4 +1,3 @@
-
 /* Box sizing rules */
 *,
 *::before,
@@ -14,14 +13,22 @@ html {
 }
 
 /* Remove default margin in favour of better control in authored CSS */
-body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
   margin-block-end: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -32,14 +39,21 @@ body {
 }
 
 /* Set shorter line heights on headings and interactive elements */
-h1, h2, h3, h4,
-button, input, label {
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
   line-height: 1.1;
 }
 
 /* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
 }
 
@@ -57,8 +71,10 @@ picture {
 }
 
 /* Inherit fonts for inputs and buttons */
-input, button,
-textarea, select {
+input,
+button,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
 }
@@ -75,7 +91,7 @@ textarea:not([rows]) {
 
 /* YURI STYLES */
 
-:root{
+:root {
   --bg-color: white;
   --text-color: black;
   --subText-color: #898989;
@@ -99,64 +115,64 @@ body {
   color: var(--text-color);
   height: 100vh;
   @media (max-width: 450px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+
+    header {
+      margin: 0px 32px 0px 32px;
+      max-width: 100vw;
+    }
+
+    .sidebar {
       display: flex;
-      flex-wrap: wrap;
-      margin-top: 24px;
+      gap: 24px;
+      justify-content: space-between;
+    }
 
-      header {
-        margin: 0px 32px 0px 32px;
-        max-width: 100vw;
-      }
-      
-      .sidebar {
-        display: flex;
-        gap: 24px;
-        justify-content: space-between;
-      }
+    .welcomingCopy {
+      padding-top: 32px;
+    }
+    h1 {
+      font-size: 30px;
+      letter-spacing: 0;
+      line-height: 100%;
+    }
 
-      .welcomingCopy {
-        padding-top: 32px;
-      }
-      h1 {
-        font-size: 30px;
-        letter-spacing: 0;
-        line-height: 100%
-      }
+    section {
+      margin: 0px 40px 0px 40px;
+      padding-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0;
+      grid-template-rows: 1fr 64px 64px; /* the second and third value are temporary */
+    }
 
-      section {
-        margin: 0px 40px 0px 40px;
-        padding-top: 48px;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 0;
-        grid-template-rows: 1fr 64px 64px; /* the second and third value are temporary */
-      }
-
-      footer {
-        display: grid;
-        gap: 36px;
-        margin: 0px 40px 48px 40px;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 64px;
-      }
-      h2 {
-        font-size:small;
-      }
-      .column1 {
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 1;
-      }
-      .column2 {
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 2;
-      }
-      .column3 {
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 3;
-      }
+    footer {
+      display: grid;
+      gap: 36px;
+      margin: 0px 40px 48px 40px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 64px;
+    }
+    h2 {
+      font-size: small;
+    }
+    .column1 {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      grid-row-start: 1;
+    }
+    .column2 {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      grid-row-start: 2;
+    }
+    .column3 {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      grid-row-start: 3;
+    }
   }
 }
 
@@ -164,7 +180,6 @@ p {
   color: #898989;
   padding-bottom: 4px;
 }
-
 
 /* HEADER */
 header {
@@ -209,7 +224,7 @@ img.toggleDark {
   display: none;
 }
 .darkMode #theme-switch img.toggleLight {
- display: inline-block;
+  display: inline-block;
 }
 
 /* SECTION */
@@ -232,7 +247,7 @@ h1 {
   font-size: 128px;
   font-weight: 900;
   letter-spacing: -3.84px;
-  line-height: 90%
+  line-height: 90%;
 }
 
 .hidden {
@@ -267,8 +282,8 @@ button.picturesBatchLoader {
   color: var(--text-color);
 }
 .picturesBatchLoader:hover {
-  background-color:var(--text-color);
-  border-color:var(--text-color);
+  background-color: var(--text-color);
+  border-color: var(--text-color);
   color: var(--bg-color);
   transition: 300ms;
 }
@@ -276,7 +291,6 @@ button.picturesBatchLoader {
   background-color: var(--subText-color);
   color: var(--text-color);
 }
-
 
 /* IMAGES OVERLAY */
 .overlay {
@@ -288,7 +302,7 @@ button.picturesBatchLoader {
   align-items: flex-end;
   padding-bottom: 24px;
   padding-right: 24px;
-  opacity: 0;  /* hidden by default */
+  opacity: 0; /* hidden by default */
   transition: opacity 0.3s ease;
   border-radius: 1rem;
 }
@@ -333,7 +347,8 @@ button.picturesBatchLoader {
   align-items: center;
   background: rgba(255, 255, 255, 0.25);
 }
-.likesTitle, #countLikes {
+.likesTitle,
+#countLikes {
   color: white;
 }
 #btnLike {
@@ -342,7 +357,6 @@ button.picturesBatchLoader {
 #openCommentsModal {
   cursor: pointer;
 }
-
 
 /* FOOTER */
 footer {
@@ -366,7 +380,6 @@ h2 {
   gap: 1rem;
 }
 
-
 /* GHAZAL */
 .popup-overlay {
   position: fixed;
@@ -389,9 +402,9 @@ h2 {
 .popup-content {
   position: relative;
   background: var(--bg-color);
-  padding: 16px;
+  padding: 30px;
   border-radius: 8px;
-  padding: 10px;
+
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   transform: translateY(0);
   transition: transform 0.3s ease;
@@ -404,9 +417,9 @@ h2 {
   max-height: 80vh;
   border-radius: 8px;
 }
-.close-popup {
+#close-popup {
   position: absolute;
-  top: 8px;
+  top: -5px;
   right: 12px;
   font-size: 24px;
   color: var(--text-color);
@@ -422,8 +435,47 @@ h2 {
   margin-bottom: 24px;
 }
 
+/* comments */
+#commentSection {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
+#commentInput {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  resize: none;
+  font-family: inherit;
+}
 
+#commentButton {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: inherit;
+}
 
+#commentButton:hover {
+  background-color: #0056b3;
+}
 
+#commentsList {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-height: 200px;
+}
 
+#commentsList p {
+  background: #f5f5f5;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  margin: 0.2rem 0;
+}
