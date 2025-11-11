@@ -110,6 +110,8 @@ textarea:not([rows]) {
   margin: 0;
 }
 
+/* Adapting the sizes to diferent screens */
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -195,9 +197,6 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
-img.logoDark {
-  display: inline-block;
-}
 
 /* SWITCHING LOGO */
 img.logoDark {
@@ -225,6 +224,9 @@ img.toggleDark {
 }
 .darkMode #theme-switch img.toggleLight {
   display: inline-block;
+}
+#theme-switch {
+  margin-bottom: 24px;
 }
 
 /* SECTION */
@@ -354,9 +356,20 @@ button.picturesBatchLoader {
 #btnLike {
   cursor: pointer;
 }
-#openCommentsModal {
+.btnLike {
+  background: transparent;
+  border: none;
   cursor: pointer;
 }
+.btnLike img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+.btnLike:hover img {
+  transform: scale(1.1);
+}
+
 
 /* FOOTER */
 footer {
