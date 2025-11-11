@@ -222,52 +222,6 @@ async function fetchImages(page) {
 // Load initial images
 fetchImages(currentPage);
 
-// YURI SCRIPTS >>
-
-// LOGO BUTTON FOR IMG LOADER
-const button = document.getElementById("logoImgLoader-btn");
-const textSection = document.querySelector(".welcomingCopy");
-const buttonLoader = document.querySelector("#buttonContainer");
-
-button.addEventListener("click", () => {
-  const showingText = !textSection.classList.contains("hidden");
-
-  if (showingText) {
-    textSection.classList.add("hidden");
-    container.style.display = "inline-flex";
-    buttonLoader.style.display = "flex";
-  } else {
-    container.style.display = "none";
-    textSection.classList.remove("hidden");
-    buttonLoader.style.display = "none";
-  }
-});
-
-// BUTTON FOR DARK-LIGHT MODE
-let darkMode = localStorage.getItem("darkMode");
-const themeSwitch = document.getElementById("theme-switch");
-
-const enableDarkMode = () => {
-  document.body.classList.add("darkMode");
-  localStorage.setItem("darkMode", "active");
-};
-
-const disableDarkMode = () => {
-  document.body.classList.remove("darkMode");
-  localStorage.setItem("darkMode", null);
-};
-
-if (darkMode === "active") enableDarkMode();
-
-themeSwitch.addEventListener("click", () => {
-  darkMode = localStorage.getItem("darkMode");
-  if (darkMode !== "active") {
-    enableDarkMode();
-  } else {
-    disableDarkMode();
-  }
-});
-
 // PATRICIA >>
 
 // Button: charge more images
