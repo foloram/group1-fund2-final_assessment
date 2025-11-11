@@ -6,7 +6,6 @@ const container = document.getElementById("gallery");
 let currentPage = 1;
 const limit = 10;
 
-// SIDEBAR SCRIPTS <<
 
 // LOGO BUTTON FOR IMG LOADER
 const button = document.getElementById('logoImgLoader-btn');
@@ -53,10 +52,8 @@ themeSwitch.addEventListener("click", () => {
     disableDarkMode();
   };
 })
-// SIDEBAR SCRIPTS >>
 
 
-// MODAL POPUP <<
 // Modal pop-up
 const popupOverlay = document.getElementById("popupOverlay");
 const popupImage = document.getElementById("popupImage");
@@ -73,7 +70,7 @@ function openPopup(src) {
 closePopup.addEventListener("click", () => {
   popupOverlay.classList.add("hidden");
 }); 
-// MODAL POPUP >>
+
 
 // comment section
 const commentInput = document.getElementById("commentInput");
@@ -162,10 +159,10 @@ function createImage(src) {
   iconsWrapper.appendChild(commentButton);
   overlay.appendChild(iconsWrapper);
 
-  // GHAZAL >> THIS IS IMPORTANT: Add click event to open popup!
+  // Add click event to open popup!
   commentButton.addEventListener("click", () => {
     openPopup(src);
-  }); // GHAZAL <<
+  });
 
   // Add image + overlay to wrapper
   wrapper.appendChild(image);
@@ -222,25 +219,12 @@ async function fetchImages(page) {
 // Load initial images
 fetchImages(currentPage);
 
-// PATRICIA >>
 
 // Button: charge more images
 buttonLoader.addEventListener("click", () => {
   currentPage++;
   fetchImages(currentPage);
 });
-
-// like button and counter
-// let counting = 0;
-
-// const btnLike = document.getElementById("btnLike");
-// const moreLikes = document.getElementById("countLikes");
-
-// btnLike.addEventListener("click", 
-//   function() {
-//     counting++;
-//     moreLikes.textContent = counting;
-// });
 
 
 
