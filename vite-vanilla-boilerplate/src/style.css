@@ -93,7 +93,7 @@ textarea:not([rows]) {
 
 :root {
   --bg-color: white;
-  --text-color: rgb(55, 54, 54);
+  --text-color: rgb(100, 3, 58);
   --subText-color: #898989;
 
   font-family: "Inter";
