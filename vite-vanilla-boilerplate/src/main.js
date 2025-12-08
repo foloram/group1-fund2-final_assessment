@@ -85,8 +85,8 @@ function addComment() {
     //This comment appears on the screen but is temporary
     //If the page is refreshed, the <li> will disappear because it wasn't saved in a persistent storage, local or data base
     //msg to user
-    let mensage = "Thank you for your comment!" // create a message to thank the user.
-    document.getElementById("mensage").textContent = mensage // display the message in the HTML element by the id "mensage",
+    let text1 = "Thank you for your comment!" // create a message to thank the user.
+    document.getElementById("mensage").textContent = text1 // display the message in the HTML element by the id "mensage",
     //  all also temporary, when refresh the page it desapear, because it is stored only in the ram memory
     //clear user input
     inputComment.value = "" // clear the input field for the next commment.
