@@ -61,16 +61,15 @@
         <div class="popup-content">
           <span id="close-popup">&times;</span>
           <img id="popupImage" src="" alt="Expanded Image" />
-          <div id="commentsSection" class="comments-section">
-            <div id="commentsList"></div>
-            <textarea
-              name=""
-              id="commentInput"
-              placeholder="comment"
-              rows="3"
-            ></textarea>
-            <button id="commentButton">submit</button>
-          </div>
+          <!-- coments-->
+          <div class="container3">
+    <p><h3>Make your comment:</h3>
+    </p>
+    <input type="text" id="inputComment" placeholder="write here">
+   <button id="addCommentButton">add</button>
+    <p id="mensage"></p>
+    <ul id="listComments"></ul>
+  </div>
         </div>
       </div>
       <!-- buttons -->
@@ -103,5 +102,6 @@
     </footer>
 
     <script type="module" src="/src/main.js"></script>
+     
   </body>
 </html>
