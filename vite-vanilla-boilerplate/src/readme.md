@@ -17,4 +17,5 @@ The app retrieves images from the API and displays them in a layout inspired by 
 
 HTML, CSS, JavaScript, Git, GitHub
 
-Hyper Island, Stockholm, Front End, Fed27
+Hyper Island, Stockholm, Front End, 2025
+Fed27
