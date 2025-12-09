@@ -72,34 +72,24 @@ closePopup.addEventListener("click", () => {
 }); 
 
 
-// comment section
-const commentInput = document.getElementById("commentInput");
-const commentButton = document.getElementById("commentButton");
-const commentsList = document.getElementById("commentsList");
-
-let imageComments = {};
-let currentImageSrc = null;
-
-commentButton.addEventListener("click", () => {
-  const commentText = commentInput.value.trim();
-  if (!commentText || !currentImageSrc) return;
-  if (!imageComments[currentImageSrc]) {
-    imageComments[currentImageSrc] = [];
-  }
-  imageComments[currentImageSrc].push(commentText);
-  commentInput.value = "";
-  renderComments();
-});
-
-function renderComments() {
-  commentsList.innerHTML = "";
-  const comments = imageComments[currentImageSrc] || [];
-  comments.forEach((comment) => {
-    const commentDiv = document.createElement("div");
-    commentDiv.classList.add("comment");
-    commentDiv.textContent = comment;
-    commentsList.appendChild(commentDiv);
-  });
+// comment section Patricia
+const addCommentButton = document.getElementById("addCommentButton");
+addCommentButton.addEventListener("click", addComment);
+function addComment() {
+    let inputComment = document.getElementById("inputComment")
+    let comment = inputComment.value
+    let listComments = document.getElementById("listComments") // here im creating UL, because i want to put LI inside
+    let newComment = document.createElement("li") // createElement() → here im creating <li>
+    newComment.textContent = comment // I'm putting the comment inside the LI 
+    listComments.appendChild(newComment) // appendChild add a child element the LI inside UL and displays it on the screen.
+    //This comment appears on the screen but is temporary
+    //If the page is refreshed, the <li> will disappear because it wasn't saved in a persistent storage, local or data base
+    //msg to user
+    let text1 = "Thank you for your comment!" // create a message to thank the user.
+    document.getElementById("mensage").textContent = text1 // display the message in the HTML element by the id "mensage",
+    //  all also temporary, when refresh the page it desapear, because it is stored only in the ram memory
+    //clear user input
+    inputComment.value = "" // clear the input field for the next commment.
 }
 
 // Create image element and add to container //

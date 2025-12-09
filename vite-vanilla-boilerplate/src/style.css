@@ -93,14 +93,14 @@ textarea:not([rows]) {
 
 :root {
   --bg-color: white;
-  --text-color: black;
+  --text-color: rgb(100, 3, 58);
   --subText-color: #898989;
 
   font-family: "Inter";
   font-size: 0.8rem;
 }
 .darkMode {
-  --bg-color: #000000;
+  --bg-color: #1c1c1c;
   --text-color: white;
   --subText-color: #b0b0b0;
 }
